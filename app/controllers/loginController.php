@@ -22,7 +22,7 @@
 		    }else{
 
 			    # Verificando integridad de los datos #
-			    if($this->verificarDatos("[a-zA-Z0-9]{4,20}",$usuario)){
+			    if($this->verificarDatos("[a-zA-Z0-9&]{4,20}",$usuario)){
 					echo '<article class="message is-danger">
 					  <div class="message-body">
 					    <strong>Ocurrió un error inesperado</strong><br>

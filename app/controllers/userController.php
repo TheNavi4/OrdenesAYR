@@ -44,7 +44,7 @@
 		        exit();
 		    }
 
-		    if($this->verificarDatos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$apellido)){
+		    if($this->verificarDatos("[a-zA-ZáéíóúÁÉÍÓÚñÑ& ]{3,40}",$apellido)){
 		    	$alerta=[
 					"tipo"=>"simple",
 					"titulo"=>"Ocurrió un error inesperado",
@@ -55,7 +55,7 @@
 		        exit();
 		    }
 
-		    if($this->verificarDatos("[a-zA-Z0-9]{4,20}",$usuario)){
+		    if($this->verificarDatos("[a-zA-Z0-9&]{4,20}",$usuario)){
 		    	$alerta=[
 					"tipo"=>"simple",
 					"titulo"=>"Ocurrió un error inesperado",
@@ -520,7 +520,7 @@
 		        exit();
 		    }
 
-		    if($this->verificarDatos("[a-zA-Z0-9]{4,20}",$admin_usuario)){
+		    if($this->verificarDatos("[a-zA-Z0-9&]{4,20}",$admin_usuario)){
 		        $alerta=[
 					"tipo"=>"simple",
 					"titulo"=>"Ocurrió un error inesperado",
@@ -606,7 +606,7 @@
 		        exit();
 		    }
 
-		    if($this->verificarDatos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}",$apellido)){
+		    if($this->verificarDatos("[a-zA-ZáéíóúÁÉÍÓÚñÑ& ]{3,40}",$apellido)){
 		        $alerta=[
 					"tipo"=>"simple",
 					"titulo"=>"Ocurrió un error inesperado",
@@ -617,7 +617,7 @@
 		        exit();
 		    }
 
-		    if($this->verificarDatos("[a-zA-Z0-9]{4,20}",$usuario)){
+		    if($this->verificarDatos("[a-zA-Z0-9&]{4,20}",$usuario)){
 		    	$alerta=[
 					"tipo"=>"simple",
 					"titulo"=>"Ocurrió un error inesperado",

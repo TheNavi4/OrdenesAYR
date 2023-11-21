@@ -34,11 +34,11 @@
             }
 
             # Verificando integridad de los datos #
-		    if($this->verificarDatos("[a-zA-Z0-9-]{7,30}",$numero_documento)){
+		    if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{7,30}",$numero_documento)){
 		    	$alerta=[
 					"tipo"=>"simple",
 					"titulo"=>"Ocurrió un error inesperado",
-					"texto"=>"El NUMERO DE DOCUMENTO no coincide con el formato solicitado",
+					"texto"=>"Las PLACAS no coincide con el formato solicitado",
 					"icono"=>"error"
 				];
 				return json_encode($alerta);
@@ -67,29 +67,29 @@
 		        exit();
 		    }
 
-		    if($this->verificarDatos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,30}",$provincia)){
+		    if($this->verificarDatos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,30}",$provincia)){
 		    	$alerta=[
 					"tipo"=>"simple",
 					"titulo"=>"Ocurrió un error inesperado",
-					"texto"=>"El ESTADO, PROVINCIA O DEPARTAMENTO no coincide con el formato solicitado",
+					"texto"=>"LA MARCA, DIRECCION O TIPO no coincide con el formato solicitado",
 					"icono"=>"error"
 				];
 				return json_encode($alerta);
 		        exit();
 		    }
 
-		    if($this->verificarDatos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,30}",$ciudad)){
+		    if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{3,30}",$ciudad)){
 		    	$alerta=[
 					"tipo"=>"simple",
 					"titulo"=>"Ocurrió un error inesperado",
-					"texto"=>"La CIUDAD O PUEBLO no coincide con el formato solicitado",
+					"texto"=>"El COLOR no coincide con el formato solicitado",
 					"icono"=>"error"
 				];
 				return json_encode($alerta);
 		        exit();
 		    }
 
-		    if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{4,70}",$direccion)){
+		    if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{3,70}",$direccion)){
 		    	$alerta=[
 					"tipo"=>"simple",
 					"titulo"=>"Ocurrió un error inesperado",
@@ -118,7 +118,7 @@
 				$alerta=[
 					"tipo"=>"simple",
 					"titulo"=>"Ocurrió un error inesperado",
-					"texto"=>"El TIPO DE DOCUMENTO no es correcto o no lo ha seleccionado",
+					"texto"=>"El MODELO no es correcto o no lo ha seleccionado",
 					"icono"=>"error"
 				];
 				return json_encode($alerta);
@@ -219,7 +219,7 @@
 				$alerta=[
 					"tipo"=>"limpiar",
 					"titulo"=>"Cliente registrado",
-					"texto"=>"El cliente ".$nombre." ".$apellido." se registro con exito",
+					"texto"=>"El cliente ".$nombre." se registro con exito",
 					"icono"=>"success"
 				];
 			}else{
@@ -278,9 +278,9 @@
 		            <thead>
 		                <tr>
 		                    <th class="has-text-centered">#</th>
-		                    <th class="has-text-centered">Documento</th>
+		                    <th class="has-text-centered">Vehiculo</th>
 		                    <th class="has-text-centered">Nombre</th>
-		                    <th class="has-text-centered">Email</th>
+		                    <th class="has-text-centered">Contacto</th>
 		                    <th class="has-text-centered">Actualizar</th>
 		                    <th class="has-text-centered">Eliminar</th>
 		                </tr>
@@ -295,9 +295,9 @@
 					$tabla.='
 						<tr class="has-text-centered" >
 							<td>'.$contador.'</td>
-							<td>'.$rows['cliente_tipo_documento'].': '.$rows['cliente_numero_documento'].'</td>
-							<td>'.$rows['cliente_nombre'].' '.$rows['cliente_apellido'].'</td>
-							<td>'.$rows['cliente_email'].'</td>
+							<td>'.$rows['cliente_provincia'].' '.$rows['cliente_apellido'].' '.$rows['cliente_tipo_documento'].' </td>
+							<td>'.$rows['cliente_nombre'].' </td>
+							<td>'.$rows['cliente_telefono'].'</td>
 			                <td>
 			                    <a href="'.APP_URL.'clientUpdate/'.$rows['cliente_id'].'/" class="button is-success is-rounded is-small">
 			                    	<i class="fas fa-sync fa-fw"></i>
@@ -501,18 +501,18 @@
 		        exit();
 		    }
 
-		    if($this->verificarDatos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,30}",$provincia)){
+		    if($this->verificarDatos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,30}",$provincia)){
 		    	$alerta=[
 					"tipo"=>"simple",
 					"titulo"=>"Ocurrió un error inesperado",
-					"texto"=>"El ESTADO, PROVINCIA O DEPARTAMENTO no coincide con el formato solicitado",
+					"texto"=>"LA MARCA, TIPO O DIRECCION no coincide con el formato solicitado",
 					"icono"=>"error"
 				];
 				return json_encode($alerta);
 		        exit();
 		    }
 
-		    if($this->verificarDatos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,30}",$ciudad)){
+		    if($this->verificarDatos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,30}",$ciudad)){
 		    	$alerta=[
 					"tipo"=>"simple",
 					"titulo"=>"Ocurrió un error inesperado",

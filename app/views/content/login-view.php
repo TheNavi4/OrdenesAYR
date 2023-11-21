@@ -15,7 +15,7 @@
 		<div class="field">
 			<label class="label"><i class="fas fa-user-secret"></i> &nbsp; Usuario</label>
 			<div class="control">
-			    <input class="input" type="text" name="login_usuario" pattern="[a-zA-Z0-9]{4,20}" maxlength="20" required >
+			    <input class="input" type="text" name="login_usuario" pattern="[a-zA-Z0-9&]{4,20}" maxlength="20" required >
 			</div>
 		</div>
 

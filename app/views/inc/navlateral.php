@@ -183,7 +183,7 @@
 							<i class="fas fa-tags fa-fw"></i>
 						</div>
 						<div class="navLateral-body-cr">
-							CATEGORIAS
+							CATERGORIAS
 						</div>
 						<span class="fas fa-chevron-down"></span>
 					</a>
@@ -229,7 +229,7 @@
 							<i class="fas fa-cubes fa-fw"></i>
 						</div>
 						<div class="navLateral-body-cr">
-							PRODUCTOS
+							SERVICIOS
 						</div>
 						<span class="fas fa-chevron-down"></span>
 					</a>
@@ -240,7 +240,7 @@
 									<i class="fas fa-box fa-fw"></i>
 								</div>
 								<div class="navLateral-body-cr">
-									Nuevo producto
+									Agregar Servicio
 								</div>
 							</a>
 						</li>
@@ -250,7 +250,7 @@
 									<i class="fas fa-clipboard-list fa-fw"></i>
 								</div>
 								<div class="navLateral-body-cr">
-									Lista de productos
+									Lista de Servicios
 								</div>
 							</a>
 						</li>
@@ -260,7 +260,7 @@
 									<i class="fas fa-boxes fa-fw"></i>
 								</div>
 								<div class="navLateral-body-cr">
-									Productos por categoría
+									Servicios por Categoria
 								</div>
 							</a>
 						</li>
@@ -270,7 +270,7 @@
 									<i class="fas fa-search fa-fw"></i>
 								</div>
 								<div class="navLateral-body-cr">
-									Buscar producto
+									Buscar Servicio
 								</div>
 							</a>
 						</li>
@@ -285,7 +285,7 @@
 							<i class="fas fa-shopping-cart fa-fw"></i>
 						</div>
 						<div class="navLateral-body-cr">
-							VENTAS
+							ORDENES DE SERVICIOS
 						</div>
 						<span class="fas fa-chevron-down"></span>
 					</a>
@@ -296,7 +296,7 @@
 									<i class="fas fa-cart-plus fa-fw"></i>
 								</div>
 								<div class="navLateral-body-cr">
-									Nueva venta
+									Crear Nueva Orden
 								</div>
 							</a>
 						</li>
@@ -306,7 +306,7 @@
 									<i class="fas fa-clipboard-list fa-fw"></i>
 								</div>
 								<div class="navLateral-body-cr">
-									Lista de ventas
+									Lista de Ordenes
 								</div>
 							</a>
 						</li>
@@ -316,7 +316,7 @@
 									<i class="fas fa-search-dollar fa-fw"></i>
 								</div>
 								<div class="navLateral-body-cr">
-									Buscar venta
+									Buscar Orden
 								</div>
 							</a>
 						</li>

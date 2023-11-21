@@ -1,6 +1,6 @@
 <div class="container is-fluid mb-6">
-	<h1 class="title">Productos</h1>
-	<h2 class="subtitle"><i class="fas fa-box fa-fw"></i> &nbsp; Nuevo producto</h2>
+	<h1 class="title">Servicios</h1>
+	<h2 class="subtitle"><i class="fas fa-box fa-fw"></i> &nbsp; Nuevo servicio</h2>
 </div>
 
 <div class="container pb-6 pt-6">
@@ -12,7 +12,7 @@
 		<div class="columns">
 		  	<div class="column">
 		    	<div class="control">
-					<label>Código de barra <?php echo CAMPO_OBLIGATORIO; ?></label>
+					<label>Descripcion del Servicio <?php echo CAMPO_OBLIGATORIO; ?></label>
 				  	<input class="input" type="text" name="producto_codigo" pattern="[a-zA-Z0-9- ]{1,77}" maxlength="77" required >
 				</div>
 		  	</div>
@@ -22,53 +22,16 @@
 				  	<input class="input" type="text" name="producto_nombre" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\-\/ ]{1,100}" maxlength="100" required >
 				</div>
 		  	</div>
-		</div>
-		<div class="columns">
-		  	<div class="column">
+
+			<div class="column">
 		    	<div class="control">
-					<label>Precio de compra <?php echo CAMPO_OBLIGATORIO; ?></label>
-				  	<input class="input" type="text" name="producto_precio_compra" pattern="[0-9.]{1,25}" maxlength="25" value="0.00" required >
-				</div>
-		  	</div>
-		  	<div class="column">
-		    	<div class="control">
-					<label>Precio de venta <?php echo CAMPO_OBLIGATORIO; ?></label>
+					<label>Costo del servicio <?php echo CAMPO_OBLIGATORIO; ?></label>
 				  	<input class="input" type="text" name="producto_precio_venta" pattern="[0-9.]{1,25}" maxlength="25" value="0.00" required >
 				</div>
 		  	</div>
-		  	<div class="column">
-		    	<div class="control">
-					<label>Stock o existencias <?php echo CAMPO_OBLIGATORIO; ?></label>
-				  	<input class="input" type="text" name="producto_stock" pattern="[0-9]{1,22}" maxlength="22" required >
-				</div>
-		  	</div>
 		</div>
+		
 		<div class="columns">
-		  	<div class="column">
-		    	<div class="control">
-					<label>Marca</label>
-				  	<input class="input" type="text" name="producto_marca" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}" maxlength="30" >
-				</div>
-		  	</div>
-		  	<div class="column">
-		    	<div class="control">
-					<label>Modelo</label>
-				  	<input class="input" type="text" name="producto_modelo" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}" maxlength="30" >
-				</div>
-		  	</div>
-		  	<div class="column">
-		    	<div class="control">
-					<label>Presentación del producto <?php echo CAMPO_OBLIGATORIO; ?></label><br>
-				  	<div class="select">
-					  	<select name="producto_unidad">
-					    	<option value="" selected="" >Seleccione una opción</option>
-	                        <?php
-	                        	echo $insLogin->generarSelect(PRODUCTO_UNIDAD,"VACIO");
-	                        ?>
-					  	</select>
-					</div>
-				</div>
-		  	</div>
 		  	<div class="column">
 				<label>Categoría <?php echo CAMPO_OBLIGATORIO; ?></label><br>
 		    	<div class="select">
@@ -86,10 +49,54 @@
 				  	</select>
 				</div>
 		  	</div>
+			<div class="column">
+		    	<div class="control">
+					<label>Confirme Categoria</label>
+				  	<input class="input" type="text" name="producto_marca" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}" maxlength="30" >
+				</div>
+		  	</div>
+			<div class="column">
+		    	<div class="control">
+					<label>Presentación del producto <?php echo CAMPO_OBLIGATORIO; ?></label><br>
+				  	<div class="select">
+					  	<select name="producto_unidad">
+					    	<option value="" selected="" >Seleccione una opción</option>
+	                        <?php
+	                        	echo $insLogin->generarSelect(PRODUCTO_UNIDAD,"VACIO");
+	                        ?>
+					  	</select>
+					</div>
+				</div>
+		  	</div>
+
 		</div>
+		<br><br><br><br>
 		<div class="columns">
 			<div class="column">
-				<label>Foto o imagen del producto</label><br>
+				<div class="control">
+				<label>Unidad <?php echo CAMPO_OBLIGATORIO; ?></label>
+				<input class="input" type="text" name="producto_precio_compra" pattern="[0-9.]{1,25}" maxlength="25" value="1.00" readonly>
+				</div>
+			</div>
+
+			<div class="column">
+				<div class="control">
+				<label>Stock o existencias <?php echo CAMPO_OBLIGATORIO; ?></label>
+				<input class="input" type="text" name="producto_stock" pattern="[0-9]{1,22}" maxlength="22" value="999999999999" readonly>
+				</div>
+			</div>
+			<div class="column">
+				<div class="control">
+				<label>Modelo (no es necesario editar este campo)</label>
+				<input class="input readonly" type="text" name="producto_modelo" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}" maxlength="30" readonly>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="columns">
+			<div class="column">
+				<label>Foto o imagen del producto (opcional)</label><br>
 				<div class="file is-small has-name">
 				  	<label class="file-label">
 				    	<input class="file-input" type="file" name="producto_foto" accept=".jpg, .png, .jpeg" >

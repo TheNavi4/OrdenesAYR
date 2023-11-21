@@ -28,7 +28,7 @@
 		$pdf = new PDF_Code128('P','mm','Letter');
 		$pdf->SetMargins(17,17,17);
 		$pdf->AddPage();
-		$pdf->Image(APP_URL.'app/views/img/logo.png',165,12,35,35,'PNG');
+		$pdf->Image(APP_URL.'app/views/img/climas.jpg',165,12,35,35,'JPG'); 
 
 		$pdf->SetFont('Arial','B',16);
 		$pdf->SetTextColor(32,100,210);
@@ -101,11 +101,11 @@
 			$pdf->SetTextColor(39,39,51);
 			$pdf->Cell(13,7,utf8_decode('Cliente:'),0,0);
 			$pdf->SetTextColor(97,97,97);
-			$pdf->Cell(60,7,utf8_decode($datos_venta['cliente_nombre']." ".$datos_venta['cliente_apellido']),0,0,'L');
+			$pdf->Cell(60,7,utf8_decode($datos_venta['cliente_nombre']." "),0,0,'L');
 			$pdf->SetTextColor(39,39,51);
-			$pdf->Cell(8,7,utf8_decode("Doc: "),0,0,'L');
+			$pdf->Cell(16,7,utf8_decode("Vehiculo:"),0,0,'L');
 			$pdf->SetTextColor(97,97,97);
-			$pdf->Cell(60,7,utf8_decode($datos_venta['cliente_tipo_documento']." ".$datos_venta['cliente_numero_documento']),0,0,'L');
+			$pdf->Cell(60,7,utf8_decode($datos_venta['cliente_provincia']." ".$datos_venta['cliente_apellido']." ".$datos_venta['cliente_tipo_documento']),0,0,'L');
 			$pdf->SetTextColor(39,39,51);
 			$pdf->Cell(7,7,utf8_decode('Tel:'),0,0,'L');
 			$pdf->SetTextColor(97,97,97);
@@ -117,7 +117,7 @@
 			$pdf->SetTextColor(39,39,51);
 			$pdf->Cell(6,7,utf8_decode('Dir:'),0,0);
 			$pdf->SetTextColor(97,97,97);
-			$pdf->Cell(109,7,utf8_decode($datos_venta['cliente_provincia'].", ".$datos_venta['cliente_ciudad'].", ".$datos_venta['cliente_direccion']),0,0);
+			$pdf->Cell(109,7,utf8_decode($datos_venta['cliente_direccion']),0,0);
 		}
 
 		$pdf->Ln(9);
@@ -151,7 +151,7 @@
 		$pdf->Cell(100,7,utf8_decode(''),'T',0,'C');
 			$pdf->Cell(15,7,utf8_decode(''),'T',0,'C');
 
-		$pdf->Cell(32,7,utf8_decode('TOTAL A PAGAR'),'T',0,'C');
+		/*$pdf->Cell(32,7,utf8_decode('TOTAL A PAGAR'),'T',0,'C');
 		$pdf->Cell(34,7,utf8_decode(MONEDA_SIMBOLO.number_format($datos_venta['venta_total'],MONEDA_DECIMALES,MONEDA_SEPARADOR_DECIMAL,MONEDA_SEPARADOR_MILLAR).' '.MONEDA_NOMBRE),'T',0,'C');
 
 		$pdf->Ln(7);
@@ -169,6 +169,42 @@
 		$pdf->Cell(34,7,utf8_decode(MONEDA_SIMBOLO.number_format($datos_venta['venta_cambio'],MONEDA_DECIMALES,MONEDA_SEPARADOR_DECIMAL,MONEDA_SEPARADOR_MILLAR).' '.MONEDA_NOMBRE),'',0,'C');
 
 		$pdf->Ln(12);
+		*/
+		
+		$iva = 0.16; // Valor del IVA (16%)
+
+		// ...
+
+		$pdf->SetFont('Arial','B',9);
+		$pdf->Cell(32,7,utf8_decode('TOTAL A PAGAR'),'T',0,'C');
+		$pdf->Cell(34,7,utf8_decode(MONEDA_SIMBOLO.number_format($datos_venta['venta_total'],MONEDA_DECIMALES,MONEDA_SEPARADOR_DECIMAL,MONEDA_SEPARADOR_MILLAR).' '.MONEDA_NOMBRE),'T',0,'C');
+		$pdf->Ln(7);
+	
+
+		$pdf->Cell(147,7,utf8_decode('TOTAL A PAGAR CON IVA INCLUIDO 16%'),'T',0,'C');
+		$totalConIVA = $datos_venta['venta_total'] * (1 + $iva); // Calcular el total con el IVA incluido
+		$pdf->Cell(34,7,utf8_decode(MONEDA_SIMBOLO.number_format($totalConIVA, MONEDA_DECIMALES, MONEDA_SEPARADOR_DECIMAL, MONEDA_SEPARADOR_MILLAR).' '.MONEDA_NOMBRE),'T',0,'C');
+		$pdf->Ln(7);
+
+		$pdf->Cell(100,7,utf8_decode(''),'',0,'C');
+		$pdf->Cell(15,7,utf8_decode(''),'',0,'C');
+		$pdf->Cell(32,7,utf8_decode('TOTAL PAGADO'),'',0,'C');
+		$totalPagadoConIVA = $datos_venta['venta_pagado']; // Calcular el total pagado con el IVA incluido
+		$pdf->Cell(34,7,utf8_decode(MONEDA_SIMBOLO.number_format($totalPagadoConIVA, MONEDA_DECIMALES, MONEDA_SEPARADOR_DECIMAL, MONEDA_SEPARADOR_MILLAR).' '.MONEDA_NOMBRE),'',0,'C');
+		$pdf->Ln(7);
+
+		$pdf->Cell(100,7,utf8_decode(''),'',0,'C');
+		$pdf->Cell(15,7,utf8_decode(''),'',0,'C');
+		$pdf->Cell(32,7,utf8_decode('CAMBIO'),'',0,'C');
+		$cambioConIVA = $totalPagadoConIVA - $totalConIVA; // Calcular el cambio con el IVA incluido
+		$pdf->Cell(34,7,utf8_decode(MONEDA_SIMBOLO.number_format($cambioConIVA, MONEDA_DECIMALES, MONEDA_SEPARADOR_DECIMAL, MONEDA_SEPARADOR_MILLAR).' '.MONEDA_NOMBRE),'',0,'C');
+
+		$pdf->Ln(12);
+
+
+
+
+		
 
 		$pdf->SetFont('Arial','',9);
 

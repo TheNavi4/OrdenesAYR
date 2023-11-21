@@ -61,13 +61,13 @@
 			  	</div>
 			  	<div class="level-item has-text-centered">
 				    <a href="<?php echo APP_URL; ?>productList/">
-				      	<p class="heading"><i class="fas fa-cubes fa-fw"></i> &nbsp; Productos</p>
+				      	<p class="heading"><i class="fas fa-cubes fa-fw"></i> &nbsp; Servicios</p>
 				      	<p class="title"><?php echo $total_productos->rowCount(); ?></p>
 				    </a>
 			  	</div>
 			  	<div class="level-item has-text-centered">
 			    	<a href="<?php echo APP_URL; ?>saleList/">
-			      		<p class="heading"><i class="fas fa-shopping-cart fa-fw"></i> &nbsp; Ventas</p>
+			      		<p class="heading"><i class="fas fa-shopping-cart fa-fw"></i> &nbsp; Ordenes</p>
 			      		<p class="title"><?php echo $total_ventas->rowCount(); ?></p>
 			    	</a>
 			  	</div>

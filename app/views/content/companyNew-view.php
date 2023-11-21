@@ -22,7 +22,8 @@
 		  	<div class="column">
 		    	<div class="control">
 					<label>Nombre <?php echo CAMPO_OBLIGATORIO; ?></label>
-				  	<input class="input" type="text" name="empresa_nombre" value="<?php echo $datos['empresa_nombre']; ?>" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ., ]{4,85}" maxlength="85" required >
+					<input class="input" type="text" name="empresa_nombre" value="<?php echo $datos['empresa_nombre']; ?>" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ., & ]{4,85}" maxlength="85" required>
+
 				</div>
 		  	</div>
 		</div>
@@ -66,7 +67,9 @@
 		  	<div class="column">
 		    	<div class="control">
 					<label>Nombre <?php echo CAMPO_OBLIGATORIO; ?></label>
-				  	<input class="input" type="text" name="empresa_nombre" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ., ]{4,85}" maxlength="85" required >
+					<input class="input" type="text" name="empresa_nombre" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ., & ]{4,85}" maxlength="85" required>
+
+
 				</div>
 		  	</div>
 		</div>

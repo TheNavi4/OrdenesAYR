@@ -35,6 +35,7 @@
         $pdf->MultiCell(0,5,utf8_decode($datos_empresa['empresa_direccion']),0,'C',false);
         $pdf->MultiCell(0,5,utf8_decode("Teléfono: ".$datos_empresa['empresa_telefono']),0,'C',false);
         $pdf->MultiCell(0,5,utf8_decode("Email: ".$datos_empresa['empresa_email']),0,'C',false);
+        $pdf->Image(APP_URL.'app/views/img/climas.jpg',105,8,25,25,'JPG');
 
         $pdf->Ln(1);
         $pdf->Cell(0,5,utf8_decode("------------------------------------------------------"),0,0,'C');
@@ -57,10 +58,10 @@
             $pdf->MultiCell(0,5,utf8_decode("Teléfono: N/A"),0,'C',false);
             $pdf->MultiCell(0,5,utf8_decode("Dirección: N/A"),0,'C',false);
         }else{
-            $pdf->MultiCell(0,5,utf8_decode("Cliente: ".$datos_venta['cliente_nombre']." ".$datos_venta['cliente_apellido']),0,'C',false);
-            $pdf->MultiCell(0,5,utf8_decode("Documento: ".$datos_venta['cliente_tipo_documento']." ".$datos_venta['cliente_numero_documento']),0,'C',false);
+            $pdf->MultiCell(0,5,utf8_decode("Cliente: ".$datos_venta['cliente_nombre']." "),0,'C',false);
+            $pdf->MultiCell(0,5,utf8_decode("Vehiculo: ".$datos_venta['cliente_provincia']." ".$datos_venta['cliente_apellido']." ".$datos_venta['cliente_tipo_documento']." ".$datos_venta['cliente_numero_documento']),0,'C',false);
             $pdf->MultiCell(0,5,utf8_decode("Teléfono: ".$datos_venta['cliente_telefono']),0,'C',false);
-            $pdf->MultiCell(0,5,utf8_decode("Dirección: ".$datos_venta['cliente_provincia'].", ".$datos_venta['cliente_ciudad'].", ".$datos_venta['cliente_direccion']),0,'C',false);
+            $pdf->MultiCell(0,5,utf8_decode("Dirección: ".$datos_venta['cliente_direccion']),0,'C',false);
         }
 
         $pdf->Ln(1);
@@ -105,17 +106,21 @@
         $pdf->Ln(5);
 
         $pdf->Cell(18,5,utf8_decode(""),0,0,'C');
-        $pdf->Cell(22,5,utf8_decode("CAMBIO"),0,0,'C');
+        $pdf->Cell(22,5,utf8_decode("CAMBIO O A DEBER"),0,0,'C');
         $pdf->Cell(32,5,utf8_decode(MONEDA_SIMBOLO.number_format($datos_venta['venta_cambio'],MONEDA_DECIMALES,MONEDA_SEPARADOR_DECIMAL,MONEDA_SEPARADOR_MILLAR).' '.MONEDA_NOMBRE),0,0,'C');
 
-        $pdf->Ln(10);
+        $pdf->Ln(8);
 
-        $pdf->MultiCell(0,5,utf8_decode("*** Precios de productos incluyen impuestos. Para poder realizar un reclamo o devolución debe de presentar este ticket ***"),0,'C',false);
+        $pdf->MultiCell(0,5,utf8_decode("*** Precios de productos incluyen impuestos. Para poder realizar un reclamo debe de presentar este ticket ***"),0,'C',false);
 
         $pdf->SetFont('Arial','B',9);
         $pdf->Cell(0,7,utf8_decode("Gracias por su compra"),'',0,'C');
 
         $pdf->Ln(9);
+
+        $pdf->Cell(72,5,utf8_decode("FIRMA________________________"),0,0,'C');
+        $pdf->Ln(10);
+
 
         $pdf->Code128(5,$pdf->GetY(),$datos_venta['venta_codigo'],70,20);
         $pdf->SetXY(0,$pdf->GetY()+21);

@@ -1,6 +1,6 @@
 <div class="container is-fluid mb-6">
-	<h1 class="title">Ventas</h1>
-	<h2 class="subtitle"><i class="fas fa-cart-plus fa-fw"></i> &nbsp; Nueva venta</h2>
+	<h1 class="title">Ordenes de Servicios</h1>
+	<h2 class="subtitle"><i class="fas fa-cart-plus fa-fw"></i> &nbsp; Nueva Orden</h2>
 </div>
 
 <div class="container pb-6 pt-6">
@@ -15,21 +15,21 @@
         <div class="column pb-6">
 
             <p class="has-text-centered pt-6 pb-6">
-                <small>Para agregar productos debe de digitar el código de barras en el campo "Código de producto" y luego presionar &nbsp; <strong class="is-uppercase" ><i class="far fa-check-circle"></i> &nbsp; Agregar producto</strong>. También puede agregar el producto mediante la opción &nbsp; <strong class="is-uppercase"><i class="fas fa-search"></i> &nbsp; Buscar producto</strong>. Ademas puede escribir el código de barras y presionar la tecla <strong class="is-uppercase">enter</strong></small>
+                <small>Para agregar servicios debe de digitar la descripcion del producto en la "Barra de busqueda" y luego presionar &nbsp; <strong class="is-uppercase" ><i class="far fa-check-circle"></i> &nbsp; Agregar servicio</strong>. También puede agregar el servicio mediante la opción &nbsp; <strong class="is-uppercase"><i class="fas fa-search"></i> &nbsp; Buscar por categoria</strong>. Ademas puede escribir la descripcion del servicio y presionar la tecla <strong class="is-uppercase">enter</strong></small>
             </p>
             <form class="pt-6 pb-6" id="sale-barcode-form" autocomplete="off">
                 <div class="columns">
                     <div class="column is-one-quarter">
-                        <button type="button" class="button is-link is-light js-modal-trigger" data-target="modal-js-product" ><i class="fas fa-search"></i> &nbsp; Buscar producto</button>
+                        <button type="button" class="button is-link is-light js-modal-trigger" data-target="modal-js-product" ><i class="fas fa-search"></i> &nbsp; Buscar por categoria</button>
                     </div>
                     <div class="column">
                         <div class="field is-grouped">
                             <p class="control is-expanded">
-                                <input class="input" type="text" pattern="[a-zA-Z0-9- ]{1,70}" maxlength="70"  autofocus="autofocus" placeholder="Código de barras" id="sale-barcode-input" >
+                                <input class="input" type="text" pattern="[a-zA-Z0-9- ]{1,70}" maxlength="70"  autofocus="autofocus" placeholder="Descripcion del servicio" id="sale-barcode-input" >
                             </p>
                             <a class="control">
                                 <button type="submit" class="button is-info">
-                                    <i class="far fa-check-circle"></i> &nbsp; Agregar producto
+                                    <i class="far fa-check-circle"></i> &nbsp; Agregar Servicio
                                 </button>
                             </a>
                         </div>
@@ -78,8 +78,8 @@
                     <thead>
                         <tr>
                             <th class="has-text-centered">#</th>
-                            <th class="has-text-centered">Código de barras</th>
-                            <th class="has-text-centered">Producto</th>
+                            <th class="has-text-centered">Concepto</th>
+                            <th class="has-text-centered">Servico</th>
                             <th class="has-text-centered">Cant.</th>
                             <th class="has-text-centered">Precio</th>
                             <th class="has-text-centered">Subtotal</th>
@@ -155,7 +155,7 @@
         </div>
 
         <div class="column is-one-quarter">
-            <h2 class="title has-text-centered">Datos de la venta</h2>
+            <h2 class="title has-text-centered">Datos de la orden</h2>
             <hr>
 
             <?php if($_SESSION['venta_total']>0){ ?>
@@ -164,7 +164,6 @@
             <?php }else { ?>
             <form name="formsale">
             <?php } ?>
-
                 <div class="control mb-5">
                     <label>Fecha</label>
                     <input class="input" type="date" value="<?php echo date("Y-m-d"); ?>" readonly >
@@ -248,7 +247,18 @@
                     <input class="input" type="text" id="venta_cambio" value="0.00" readonly >
                 </div>
 
+                <div class="control mb-5">
+                    <label>Total a deber por el cliente</label>
+                    <input class="input" type="text" id="venta_deuda" value="0.00" readonly >
+                </div>
+
                 <h4 class="subtitle is-5 has-text-centered has-text-weight-bold mb-5"><small>TOTAL A PAGAR: <?php echo MONEDA_SIMBOLO.number_format($_SESSION['venta_total'],MONEDA_DECIMALES,MONEDA_SEPARADOR_DECIMAL,MONEDA_SEPARADOR_MILLAR)." ".MONEDA_NOMBRE; ?></small></h4>
+                
+
+                <div class="control mb-5">
+                    <label>Realizar factura (tendrá cargo adicional)</label>
+                    <input type="checkbox" name="iva" id="iva" value="checkox_value">
+                </div>
 
                 <?php if($_SESSION['venta_total']>0){ ?>
                 <p class="has-text-centered">
@@ -283,7 +293,7 @@
         </header>
         <section class="modal-card-body">
             <div class="field mt-6 mb-6">
-                <label class="label">Nombre, marca, modelo</label>
+                <label class="label">Nombre o categoria</label>
                 <div class="control">
                     <input class="input" type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" name="input_codigo" id="input_codigo" maxlength="30" >
                 </div>
@@ -306,7 +316,7 @@
         </header>
         <section class="modal-card-body">
             <div class="field mt-6 mb-6">
-                <label class="label">Documento, Nombre, Apellido, Teléfono</label>
+                <label class="label">Nombre, Apellido, Auto, Teléfono</label>
                 <div class="control">
                     <input class="input" type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" name="input_cliente" id="input_cliente" maxlength="30" >
                 </div>
@@ -552,27 +562,51 @@
         });
     }
 
-    /*----------  Calcular cambio  ----------*/
-    let venta_abono_input = document.querySelector("#venta_abono");
-    venta_abono_input.addEventListener('keyup', function(e){
+    /*---------- Calcular deuda del cliente ----------*/
+    let abono_input = document.querySelector("#venta_abono");
+    let iva_checkbox = document.querySelector("#iva"); // Agregar el selector del checkbox
+    abono_input.addEventListener('keyup', function (e) {
         e.preventDefault();
 
-        let abono=document.querySelector('#venta_abono').value;
-        abono=abono.trim();
-        abono=parseFloat(abono);
+        let abono = document.querySelector('#venta_abono').value;
+        abono = abono.trim();
+        abono = parseFloat(abono);
 
-        let total=document.querySelector('#venta_total_hidden').value;
-        total=total.trim();
-        total=parseFloat(total);
+        let total = document.querySelector('#venta_total_hidden').value;
+        total = total.trim();
+        total = parseFloat(total);
 
-        if(abono>=total){
-            cambio=abono-total;
-            cambio=parseFloat(cambio).toFixed(<?php echo MONEDA_DECIMALES; ?>);
-            document.querySelector('#venta_cambio').value=cambio;
-        }else{
-            document.querySelector('#venta_cambio').value="0.00";
+        // Verificar si el checkbox está marcado
+        let iva = 0; // Valor por defecto sin IVA
+        if (iva_checkbox.checked) {
+            iva = 0.16; // 16% de IVA
+        }
+
+        // Calcular el precio con o sin IVA
+        let precioConIVA = total + (total * iva);
+        
+        if (abono >= precioConIVA) {
+            let cambio = abono - precioConIVA;
+            cambio = cambio.toFixed(<?php echo MONEDA_DECIMALES; ?>);
+            document.querySelector('#venta_cambio').value = cambio;
+            document.querySelector('#venta_deuda').value = "0.00"; // No hay deuda
+        } else {
+            let deuda = precioConIVA - abono;
+            deuda = deuda.toFixed(<?php echo MONEDA_DECIMALES; ?>);
+            document.querySelector('#venta_cambio').value = "0.00"; // No hay cambio
+            document.querySelector('#venta_deuda').value = deuda;
         }
     });
+
+    // Agregar un evento change al checkbox para actualizar el cálculo cuando cambie el estado del checkbox
+    iva_checkbox.addEventListener('change', function() {
+        // Llamar al código que calcula el abono nuevamente para tener en cuenta el cambio en el IVA
+        abono_input.dispatchEvent(new Event('keyup'));
+    });
+
+
+
+
 
 </script>
 

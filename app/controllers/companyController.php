@@ -27,18 +27,19 @@
 				return json_encode($alerta);
 		        exit();
             }
-
+			
             # Verificando integridad de los datos #
-		    if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ., ]{4,85}",$nombre)){
-		    	$alerta=[
-					"tipo"=>"simple",
-					"titulo"=>"Ocurrió un error inesperado",
-					"texto"=>"El NOMBRE no coincide con el formato solicitado",
-					"icono"=>"error"
+			if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ.,& ]{4,85}", $nombre)){
+				$alerta = [
+					"tipo" => "simple",
+					"titulo" => "Ocurrió un error inesperado",
+					"texto" => "El NOMBRE no coincide con el formato solicitado",
+					"icono" => "error"
 				];
 				return json_encode($alerta);
-		        exit();
-		    }
+				exit();
+			}
+			
 
 		    if($telefono!=""){
 		    	if($this->verificarDatos("[0-9()+]{8,20}",$telefono)){
@@ -54,7 +55,7 @@
 		    }
 
 		    if($direccion!=""){
-		    	if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{4,97}",$direccion)){
+		    	if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,&#\- ]{4,97}",$direccion)){
 			    	$alerta=[
 						"tipo"=>"simple",
 						"titulo"=>"Ocurrió un error inesperado",
@@ -166,7 +167,7 @@
             }
 
             # Verificando integridad de los datos #
-		    if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ., ]{4,85}",$nombre)){
+		    if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ.,& ]{4,85}",$nombre)){
 		    	$alerta=[
 					"tipo"=>"simple",
 					"titulo"=>"Ocurrió un error inesperado",

@@ -352,3 +352,8 @@ body,html{
        width: calc(100% - 300px);
     }
 }
+
+.readonly {
+    background-color: #f0f0f0; /* Color de fondo sombreado */
+    cursor: not-allowed; /* Cambia el cursor a "no permitido" */
+  }

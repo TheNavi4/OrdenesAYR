@@ -93,6 +93,8 @@
 		        exit();
             }
 
+
+
             /*== Comprobando producto en la DB ==*/
             $check_producto=$this->ejecutarConsulta("SELECT * FROM producto WHERE producto_codigo='$codigo'");
             if($check_producto->rowCount()<=0){
@@ -378,9 +380,9 @@
 			}else{
 				return '
 				<article class="message is-warning mt-4 mb-4">
-					 <div class="message-header">
+					<div class="message-header">
 					    <p>¡Ocurrio un error inesperado!</p>
-					 </div>
+					</div>
 				    <div class="message-body has-text-centered">
 				    	<i class="fas fa-exclamation-triangle fa-2x"></i><br>
 						No hemos encontrado ningún cliente en el sistema que coincida con <strong>“'.$cliente.'”</strong>
@@ -546,7 +548,7 @@
 
 
             /*== Calculando el cambio ==*/
-            if($venta_pagado<$venta_total_final){
+            /*if($venta_pagado<$venta_total_final){
                 $alerta=[
 					"tipo"=>"simple",
 					"titulo"=>"Ocurrió un error inesperado",
@@ -555,7 +557,7 @@
 				];
 				return json_encode($alerta);
 		        exit();
-            }
+            }*/
 
             $venta_cambio=$venta_pagado-$venta_total_final;
             $venta_cambio=number_format($venta_cambio,MONEDA_DECIMALES,'.','');
@@ -947,7 +949,7 @@
 							<td>'.$rows['venta_id'].'</td>
 							<td>'.$rows['venta_codigo'].'</td>
 							<td>'.date("d-m-Y", strtotime($rows['venta_fecha'])).' '.$rows['venta_hora'].'</td>
-							<td>'.$this->limitarCadena($rows['cliente_nombre'].' '.$rows['cliente_apellido'],30,"...").'</td>
+							<td>'.$this->limitarCadena($rows['cliente_nombre'].' ',50,"...").'</td>
 							<td>'.$this->limitarCadena($rows['usuario_nombre'].' '.$rows['usuario_apellido'],30,"...").'</td>
 							<td>'.MONEDA_SIMBOLO.number_format($rows['venta_total'],MONEDA_DECIMALES,MONEDA_SEPARADOR_DECIMAL,MONEDA_SEPARADOR_MILLAR).' '.MONEDA_NOMBRE.'</td>
 			                <td>

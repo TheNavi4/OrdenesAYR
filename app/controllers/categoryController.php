@@ -25,7 +25,7 @@
             }
 
             # Verificando integridad de los datos #
-		    if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{4,50}",$nombre)){
+		    if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ.,&  ]{4,50}",$nombre)){
 		    	$alerta=[
 					"tipo"=>"simple",
 					"titulo"=>"Ocurrió un error inesperado",
@@ -37,7 +37,7 @@
 		    }
 
 		    if($ubicacion!=""){
-		    	if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{5,150}",$ubicacion)){
+		    	if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ.,&  ]{5,150}",$ubicacion)){
 			    	$alerta=[
 						"tipo"=>"simple",
 						"titulo"=>"Ocurrió un error inesperado",
@@ -142,7 +142,7 @@
 		                <tr>
 		                    <th class="has-text-centered">#</th>
 		                    <th class="has-text-centered">Nombre</th>
-		                    <th class="has-text-centered">Ubicacion</th>
+		                    <th class="has-text-centered">Servicio</th>
 		                    <th class="has-text-centered">Productos</th>
 		                    <th class="has-text-centered">Actualizar</th>
 		                    <th class="has-text-centered">Eliminar</th>
@@ -315,7 +315,7 @@
             }
 
             # Verificando integridad de los datos #
-		    if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{4,50}",$nombre)){
+		    if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ.,&  ]{4,50}",$nombre)){
 		    	$alerta=[
 					"tipo"=>"simple",
 					"titulo"=>"Ocurrió un error inesperado",
@@ -327,7 +327,7 @@
 		    }
 
 		    if($ubicacion!=""){
-		    	if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{5,150}",$ubicacion)){
+		    	if($this->verificarDatos("[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ.,&  ]{5,150}",$ubicacion)){
 			    	$alerta=[
 						"tipo"=>"simple",
 						"titulo"=>"Ocurrió un error inesperado",

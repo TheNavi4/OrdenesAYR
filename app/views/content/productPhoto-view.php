@@ -43,13 +43,13 @@
 
 
 		<div class="column">
-			<h4 class="subtitle is-4 has-text-centered pb-6">Actualizar foto de producto</h4>
+			<h4 class="subtitle is-4 has-text-centered pb-6">Actualizar foto de servicio</h4>
 			<form class="mb-6 has-text-centered FormularioAjax" action="<?php echo APP_URL; ?>app/ajax/productoAjax.php" method="POST" enctype="multipart/form-data" autocomplete="off" >
 
 				<input type="hidden" name="modulo_producto" value="actualizarFoto">
 				<input type="hidden" name="producto_id" value="<?php echo $datos['producto_id']; ?>">
 				
-				<label>Foto o imagen del producto</label><br>
+				<label>Foto o imagen del servicio</label><br>
 
 				<div class="file has-name is-boxed is-justify-content-center mb-6">
 				  	<label class="file-label">

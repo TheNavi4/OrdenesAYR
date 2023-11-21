@@ -52,7 +52,7 @@
 		  	<div class="column">
 		    	<div class="control">
 					<label>Apellidos <?php echo CAMPO_OBLIGATORIO; ?></label>
-				  	<input class="input" type="text" name="usuario_apellido" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}" maxlength="40" value="<?php echo $datos['usuario_apellido']; ?>" required >
+				  	<input class="input" type="text" name="usuario_apellido" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ& ]{3,40}" maxlength="40" value="<?php echo $datos['usuario_apellido']; ?>" required >
 				</div>
 		  	</div>
 		</div>
@@ -60,7 +60,7 @@
 		  	<div class="column">
 		    	<div class="control">
 					<label>Usuario <?php echo CAMPO_OBLIGATORIO; ?></label>
-				  	<input class="input" type="text" name="usuario_usuario" pattern="[a-zA-Z0-9]{4,20}" maxlength="20" value="<?php echo $datos['usuario_usuario']; ?>" required >
+				  	<input class="input" type="text" name="usuario_usuario" pattern="[a-zA-Z0-9&]{4,20}" maxlength="20" value="<?php echo $datos['usuario_usuario']; ?>" required >
 				</div>
 		  	</div>
 		  	<div class="column">
@@ -117,7 +117,9 @@
 		  	<div class="column">
 		    	<div class="control">
 					<label>Usuario <?php echo CAMPO_OBLIGATORIO; ?></label>
-				  	<input class="input" type="text" name="administrador_usuario" pattern="[a-zA-Z0-9]{4,20}" maxlength="20" required >
+				  	
+					  <input class="input" type="text" name="administrador_usuario" pattern="[a-zA-Z0-9&]{4,20}" maxlength="20" required>
+
 				</div>
 		  	</div>
 		  	<div class="column">
