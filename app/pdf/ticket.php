@@ -27,7 +27,8 @@
 		$pdf = new PDF_Code128('P','mm',array(80,258));
 		$pdf->SetMargins(4,10,4);
         $pdf->AddPage();
-        
+        $pdf->Image(APP_URL.'app/views/img/logoayr.jpeg',30,1,20,20,'JPEG');
+        $pdf->Ln(8);
         $pdf->SetFont('Arial','B',10);
         $pdf->SetTextColor(0,0,0);
         $pdf->MultiCell(0,5,utf8_decode(strtoupper($datos_empresa['empresa_nombre'])),0,'C',false);
@@ -35,11 +36,12 @@
         $pdf->MultiCell(0,5,utf8_decode($datos_empresa['empresa_direccion']),0,'C',false);
         $pdf->MultiCell(0,5,utf8_decode("Teléfono: ".$datos_empresa['empresa_telefono']),0,'C',false);
         $pdf->MultiCell(0,5,utf8_decode("Email: ".$datos_empresa['empresa_email']),0,'C',false);
-        $pdf->Image(APP_URL.'app/views/img/climas.jpg',105,8,25,25,'JPG');
+        
+        
 
         $pdf->Ln(1);
         $pdf->Cell(0,5,utf8_decode("------------------------------------------------------"),0,0,'C');
-        $pdf->Ln(5);
+        $pdf->Ln(3 );
 
         $pdf->MultiCell(0,5,utf8_decode("Fecha: ".date("d/m/Y", strtotime($datos_venta['venta_fecha']))." ".$datos_venta['venta_hora']),0,'C',false);
         $pdf->MultiCell(0,5,utf8_decode("Caja Nro: ".$datos_venta['caja_numero']),0,'C',false);
@@ -66,7 +68,7 @@
 
         $pdf->Ln(1);
         $pdf->Cell(0,5,utf8_decode("-------------------------------------------------------------------"),0,0,'C');
-        $pdf->Ln(3);
+        $pdf->Ln(2);
 
         $pdf->Cell(18,5,utf8_decode("Cant."),0,0,'C');
         $pdf->Cell(22,5,utf8_decode("Precio"),0,0,'C');
@@ -109,9 +111,9 @@
         $pdf->Cell(22,5,utf8_decode("CAMBIO O A DEBER"),0,0,'C');
         $pdf->Cell(32,5,utf8_decode(MONEDA_SIMBOLO.number_format($datos_venta['venta_cambio'],MONEDA_DECIMALES,MONEDA_SEPARADOR_DECIMAL,MONEDA_SEPARADOR_MILLAR).' '.MONEDA_NOMBRE),0,0,'C');
 
-        $pdf->Ln(8);
+        $pdf->Ln(6);
 
-        $pdf->MultiCell(0,5,utf8_decode("*** Precios de productos incluyen impuestos. Para poder realizar un reclamo debe de presentar este ticket ***"),0,'C',false);
+        $pdf->MultiCell(0,5,utf8_decode("*** Para poder realizar un reclamo debe de presentar este ticket ***"),0,'C',false);
 
         $pdf->SetFont('Arial','B',9);
         $pdf->Cell(0,7,utf8_decode("Gracias por su compra"),'',0,'C');

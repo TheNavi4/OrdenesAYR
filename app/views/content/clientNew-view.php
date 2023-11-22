@@ -47,7 +47,7 @@
 		  	</div>
 		  	<div class="column">
 		    	<div class="control">
-					<label>Placas </label>
+					<label>Placas (En caso de no colocar: "............")</label>
 				  	<input class="input" type="text" name="cliente_numero_documento" pattern="[a-zA-Z0-9-]{7,30}" maxlength="30" required >
 				</div>
 		  	</div>
