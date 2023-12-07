@@ -52,15 +52,12 @@
 		<div class="columns">
 
 
-
 		  	<div class="column">
 		    	<div class="control">
 					<label>Precio de venta <?php echo CAMPO_OBLIGATORIO; ?></label>
 				  	<input class="input" type="text" name="producto_precio_venta" value="<?php echo $datos['producto_precio_venta']; ?>" pattern="[0-9.]{1,25}" maxlength="25" value="0.00" required >
 				</div>
 		  	</div>
-
-			
 
 			<div class="column">
 				<label>Categoría <?php echo CAMPO_OBLIGATORIO; ?></label><br>

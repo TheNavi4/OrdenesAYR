@@ -1,6 +1,6 @@
 <div class="container is-fluid mb-6">
 	<h1 class="title">Clientes</h1>
-	<h2 class="subtitle"><i class="fas fa-male fa-fw"></i> &nbsp; Nuevo cliente</h2>
+	<h2 class="subtitle"><i class="fas fa-male fa-fw"></i> &nbsp; Agregar cliente</h2>
 </div>
 
 <div class="container pb-6 pt-6">

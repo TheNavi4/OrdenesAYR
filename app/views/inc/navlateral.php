@@ -148,7 +148,7 @@
 									<i class="fas fa-male fa-fw"></i>
 								</div>
 								<div class="navLateral-body-cr">
-									Nuevo cliente
+									Agregar cliente 
 								</div>
 							</a>
 						</li>

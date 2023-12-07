@@ -22,6 +22,7 @@
                     </p>
                     <p class="control">
                         <button class="button is-info" type="submit" >Buscar</button>
+                        
                     </p>
                 </div>
             </form>

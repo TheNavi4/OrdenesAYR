@@ -37,8 +37,6 @@
         $pdf->MultiCell(0,5,utf8_decode("Teléfono: ".$datos_empresa['empresa_telefono']),0,'C',false);
         $pdf->MultiCell(0,5,utf8_decode("Email: ".$datos_empresa['empresa_email']),0,'C',false);
         
-        
-
         $pdf->Ln(1);
         $pdf->Cell(0,5,utf8_decode("------------------------------------------------------"),0,0,'C');
         $pdf->Ln(3 );
@@ -116,11 +114,13 @@
         $pdf->MultiCell(0,5,utf8_decode("*** Para poder realizar un reclamo debe de presentar este ticket ***"),0,'C',false);
 
         $pdf->SetFont('Arial','B',9);
-        $pdf->Cell(0,7,utf8_decode("Gracias por su compra"),'',0,'C');
+        $pdf->Cell(0,7,utf8_decode("Gracias por su preferencia"),'',0,'C');
 
+        $pdf->Ln(6);
+
+        $pdf->Cell(72,5,utf8_decode("FIRMA DE CONFORMIDAD"),0,0,'C');
         $pdf->Ln(9);
-
-        $pdf->Cell(72,5,utf8_decode("FIRMA________________________"),0,0,'C');
+        $pdf->Cell(72,5,utf8_decode("_______________________"),0,0,'C');
         $pdf->Ln(10);
 
 

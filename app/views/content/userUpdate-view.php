@@ -12,7 +12,7 @@
 	<h2 class="subtitle"><i class="fas fa-sync-alt"></i> &nbsp; Actualizar usuario</h2>
 	<?php } ?>
 </div>
-<div class="container pb-6 pt-6">
+<div class="container pb-6  pt-6">
 	<?php
 	
 		include "./app/views/inc/btn_back.php";
