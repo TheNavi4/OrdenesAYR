@@ -45,8 +45,7 @@
         $pdf->MultiCell(0,5,utf8_decode("Caja Nro: ".$datos_venta['caja_numero']),0,'C',false);
         $pdf->MultiCell(0,5,utf8_decode("Cajero: ".$datos_venta['usuario_nombre']." ".$datos_venta['usuario_apellido']),0,'C',false);
         $pdf->SetFont('Arial','B',10);
-        $pdf->MultiCell(0,5,utf8_decode(strtoupper("Ticket Nro: ".$datos_venta['venta_id'])),0,'C',false);
-        $pdf->SetFont('Arial','',9);
+
 
         $pdf->Ln(1);
         $pdf->Cell(0,5,utf8_decode("------------------------------------------------------"),0,0,'C');
