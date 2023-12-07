@@ -80,10 +80,10 @@
         $venta_detalle=$venta_detalle->fetchAll();
         
         foreach($venta_detalle as $detalle){
-            $pdf->MultiCell(0,4,utf8_decode($detalle['venta_detalle_descripcion']),0,'C',false);
-            $pdf->Cell(18,4,utf8_decode($detalle['venta_detalle_cantidad']),0,0,'C');
-            $pdf->Cell(22,4,utf8_decode(MONEDA_SIMBOLO.number_format($detalle['venta_detalle_precio_venta'],MONEDA_DECIMALES,MONEDA_SEPARADOR_DECIMAL,MONEDA_SEPARADOR_MILLAR)),0,0,'C');
-            $pdf->Cell(32,4,utf8_decode(MONEDA_SIMBOLO.number_format($detalle['venta_detalle_total'],MONEDA_DECIMALES,MONEDA_SEPARADOR_DECIMAL,MONEDA_SEPARADOR_MILLAR)),0,0,'C');
+            $pdf->MultiCell(0,4,utf8_decode($detalle['venta_detalle_descripcion']),0,'B',false);
+            $pdf->Cell(20,4,utf8_decode($detalle['venta_detalle_cantidad']),0,0,'C');
+            $pdf->Cell(20,4,utf8_decode(MONEDA_SIMBOLO.number_format($detalle['venta_detalle_precio_venta'],MONEDA_DECIMALES,MONEDA_SEPARADOR_DECIMAL,MONEDA_SEPARADOR_MILLAR)),0,0,'C');
+            $pdf->Cell(30,4,utf8_decode(MONEDA_SIMBOLO.number_format($detalle['venta_detalle_total'],MONEDA_DECIMALES,MONEDA_SEPARADOR_DECIMAL,MONEDA_SEPARADOR_MILLAR)),0,0,'C');
             $pdf->Ln(4);
             $pdf->Ln(3);
         }
@@ -93,19 +93,19 @@
         $pdf->Ln(5);
 
         $pdf->Cell(18,5,utf8_decode(""),0,0,'C');
-        $pdf->Cell(22,5,utf8_decode("TOTAL A PAGAR"),0,0,'C');
+        $pdf->Cell(20,5,utf8_decode("TOTAL"),0,0,'C');
         $pdf->Cell(32,5,utf8_decode(MONEDA_SIMBOLO.number_format($datos_venta['venta_total'],MONEDA_DECIMALES,MONEDA_SEPARADOR_DECIMAL,MONEDA_SEPARADOR_MILLAR).' '.MONEDA_NOMBRE),0,0,'C');
 
         $pdf->Ln(5);
         
         $pdf->Cell(18,5,utf8_decode(""),0,0,'C');
-        $pdf->Cell(22,5,utf8_decode("TOTAL PAGADO"),0,0,'C');
+        $pdf->Cell(20,5,utf8_decode("PAGADO"),0,0,'C');
         $pdf->Cell(32,5,utf8_decode(MONEDA_SIMBOLO.number_format($datos_venta['venta_pagado'],MONEDA_DECIMALES,MONEDA_SEPARADOR_DECIMAL,MONEDA_SEPARADOR_MILLAR).' '.MONEDA_NOMBRE),0,0,'C');
 
         $pdf->Ln(5);
 
-        $pdf->Cell(18,5,utf8_decode(""),0,0,'C');
-        $pdf->Cell(22,5,utf8_decode("CAMBIO O A DEBER"),0,0,'C');
+        $pdf->Cell(9,5,utf8_decode(""),0,0,'C');
+        $pdf->Cell(27,5,utf8_decode("CAMBIO O A DEBER"),0,0,'C');
         $pdf->Cell(32,5,utf8_decode(MONEDA_SIMBOLO.number_format($datos_venta['venta_cambio'],MONEDA_DECIMALES,MONEDA_SEPARADOR_DECIMAL,MONEDA_SEPARADOR_MILLAR).' '.MONEDA_NOMBRE),0,0,'C');
 
         $pdf->Ln(6);
